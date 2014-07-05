@@ -2,14 +2,53 @@
 
 These guidelines are a living document and are intended to make contributing to
 Hack Reactor projects a more pleasant experience for everyone. As such, it's
-expected to change over time. If there's anything that would help make your work
-easier or more efficient, please submit a pull request.
+expected to change over time. If there's anything that would help make your work easier or more efficient, please submit a pull request.
+
+## Specific Workflow
+
+Files should encaspulate a single conceptual idea. Files should be named following the same format as commit messages.
+
+<!-- ### Overview
+
+- Fork the repo
+- Create a feature branch, namespaced by.
+  - bug/...
+  - feat/...
+  - test/...
+  - doc/...
+  - refactor/...
+- Make commits to your feature branch. Prefix each commit like so:
+  - (feat) Added a new feature
+  - (fix) Fixed inconsistent tests [Fixes #0]
+  - (refactor) ...
+  - (cleanup) ...
+  - (test) ...
+  - (doc) ...
+- Make a pull request with your changes directly to master. Include a
+  description of your changes.
+- Wait for one of the reviewers to look at your code and either merge it or
+  give feedback which you should adapt to. -->
 
 
 ## General Workflow
 
-1. Follow Hack Reactor's [git workflow][].
-1. When you're finished with your fix or feature, submit a [pull request][].
+<!-- 1. Follow Hack Reactor's [git workflow][]. -->
+1. Fork the repo
+1. Create a feature branch, namespaced by.
+  - bug/...
+  - feat/...
+  - test/...
+  - doc/...
+  - refactor/...
+1. Make commits to your feature branch. Prefix each commit like so:
+  - (feat) Added a new feature
+  - (fix) Fixed inconsistent tests [Fixes #0]
+  - (refactor) ...
+  - (cleanup) ...
+  - (test) ...
+  - (doc) ...
+1. When you've finished with your fix or feature, submit a [pull request][]
+   directly to master. Include a description of your changes.
 1. Your pull request's build status will appear on the pull request page. If
    your build fails, click 'Details' to find out why and fix the issue.
 1. Assign a task to your code reviewer in Asana. Include a link to the pull
@@ -33,8 +72,6 @@ easier or more efficient, please submit a pull request.
 1. Tests are very, very important. Submit tests if your pull request contains
    new, testable behavior.
 1. Your pull request is comprised of a single ([squashed][]) commit.
-1. Document the changes you make. Track API changes in `CHANGELOG.md`, and major
-   workflow/setup changes in `README.md`.
 
 
 <!-- Links -->
