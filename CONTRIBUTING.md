@@ -4,22 +4,21 @@
 
 Use github’s interface to make a fork of the repo, then add that repo as an upstream remote:
 
-```
+```sh
 git remote add upstream https://github.com/hackreactor-labs/<NAME_OF_REPO>.git
 ```
 
 ## Cut a new branch from the master branch
 
 Your branch should follow this naming convention:
-- `feat/<FEATURE_NAME>` for feature additions
-- `bug/<BUG_NAME>` for bugfixes
-- `test/<TEST_NAME>` for test files
-- `doc/<DOC_DESC>` for documentation changes/style fixes
+  - `feat/<FEATURE_NAME>` for feature additions
+  - `bug/<BUG_NAME>` for bugfixes
+  - `test/<TEST_NAME>` for test files
+  - `doc/<DOC_DESC>` for documentation changes/style fixes
 
 These commands will help you do this:
 
-``` bash
-
+```sh
 # Creates your branch and brings you there
 git checkout -b `your-branch-name`
 ```
@@ -49,7 +48,7 @@ your code merged into the main repo. Step 1 is to rebase upstream
 changes to the master branch into yours by running this command
 from your branch:
 
-```
+```sh
 git pull --rebase upstream master
 ```
 
@@ -68,7 +67,7 @@ as possible.
 
 Once you are done fixing conflicts for a specific commit, run:
 
-```
+```sh
 git rebase --continue
 ```
 
