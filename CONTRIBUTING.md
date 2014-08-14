@@ -1,36 +1,80 @@
 # Contributing
 
-## Fork the repo
+These guidelines are a living document and are intended to make contributing to
+Hack Reactor projects a more pleasant experience for everyone. As such, it's
+expected to change over time. If there's anything that would help make your work easier or more efficient, please submit a pull request.
+
+## General Workflow
+
+1. Fork the repo
+1. Cut a namespaced feature branch from master
+  - feat/...
+  - fix/...
+  - test/...
+  - doc/...
+  - cleanup/ ...
+  - refactor/...
+1. Make commits to your feature branch. Prefix each commit like so:
+  - (feat) ...
+  - (fix) ...
+  - (test) ...
+  - (doc) ...
+  - (cleanup) ...
+  - (refactor) ...
+1. When you've finished with your fix or feature, Rebase upstream changes into your branch. submit a [pull request][]
+   directly to master. Include a description of your changes.
+1. Your pull request will be reviewed by another maintainer. The point of code
+   reviews is to help keep the codebase clean and of high quality and, equally
+   as important, to help you grow as a programmer. If your code reviewer
+   requests you make a change you don't understand, ask them why.
+1. Fix any issues raised by your code reviwer, and push your fixes as a single
+   new commit.
+1. Once the pull request has been reviewed, it will be merged by another member of the team. Do not merge your own commits.
+
+## Detailed Workflow
+
+### Fork the repo
 
 Use github’s interface to make a fork of the repo, then add that repo as an upstream remote:
 
-```sh
+```
 git remote add upstream https://github.com/hackreactor-labs/<NAME_OF_REPO>.git
 ```
 
-## Cut a new branch from the master branch
+### Cut a namespaced feature branch from master
 
 Your branch should follow this naming convention:
-  - `feat/<FEATURE_NAME>` for feature additions
-  - `bug/<BUG_NAME>` for bugfixes
-  - `test/<TEST_NAME>` for test files
-  - `doc/<DOC_DESC>` for documentation changes/style fixes
+  - feat/...
+  - fix/...
+  - test/...
+  - doc/...
+  - cleanup/ ...
+  - refactor/...
 
 These commands will help you do this:
 
-```sh
+``` bash
+
 # Creates your branch and brings you there
 git checkout -b `your-branch-name`
 ```
 
-## Make commits to your branch - keep them focused!
+### Make commits to your feature branch. 
+
+Prefix each commit like so
+  - (feat) ...
+  - (fix) ...
+  - (test) ...
+  - (doc) ...
+  - (cleanup) ...
+  - (refactor) ...
 
 Make changes and commits on your branch, and make sure that you
 only make changes that are relevant to this branch. If you find
 yourself making unrelated changes, make a new branch for those
 changes.
 
-### Commit Messages
+#### Commit Message Guidelines
 
 - Commit messages should be written in the present tense; e.g. "Fix continuous
   integration script".
@@ -41,14 +85,14 @@ changes.
   be a blank line and then a more detailed description of the commit. This can be
   as detailed as you want, so dig into details here and keep the first line short.
 
-## Rebase upstream changes into your branch
+### Rebase upstream changes into your branch
 
 Once you are done making changes, you can begin the process of getting
 your code merged into the main repo. Step 1 is to rebase upstream
 changes to the master branch into yours by running this command
 from your branch:
 
-```sh
+```bash
 git pull --rebase upstream master
 ```
 
@@ -67,7 +111,7 @@ as possible.
 
 Once you are done fixing conflicts for a specific commit, run:
 
-```sh
+```bash
 git rebase --continue
 ```
 
@@ -79,7 +123,7 @@ make sure they work also.
 If rebasing broke anything, fix it, then repeat the above process until
 you get here again and nothing is broken and all the tests pass.
 
-## Make a pull request
+### Make a pull request
 
 Make a clear pull request from your fork and branch to the upstream master
 branch, detailing exactly what changes you made and what feature this
@@ -96,6 +140,18 @@ someone will look at your code again. If they like it, it will get merged,
 else, just repeat again.
 
 Thanks for contributing!
+
+### Guidelines
+
+1. Uphold the current code standard:
+    - Keep your code [DRY][].
+    - Apply the [boy scout rule][].
+    <!-- - Follow [STYLE-GUIDE.md](STYLE-GUIDE.md) -->
+    - Follow the style guide.
+1. Run the tests before submitting a pull request.
+1. Tests are very, very important. Submit tests if your pull request contains
+   new, testable behavior.
+1. Your pull request is comprised of a single ([squashed][]) commit.
 
 ## Checklist:
 
@@ -114,18 +170,23 @@ This is just to help you organize your process
 If you follow all of these guidelines and make good changes, you should have
 no problem getting your changes merged in.
 
-<!-- ![curriculum workflow diagram][] -->
-
 
 <!-- Links -->
-[style guide]: https://github.com/hackreactor-labs/style-guide
-[n-queens]: https://github.com/hackreactor-labs/n-queens
-[Underbar]: https://github.com/hackreactor-labs/underbar
-[curriculum workflow diagram]: http://i.imgur.com/p0e4tQK.png
-[cons of merge]: https://f.cloud.github.com/assets/1577682/1458274/1391ac28-435e-11e3-88b6-69c85029c978.png
 [Bookstrap]: https://github.com/hackreactor/bookstrap
-[Taser]: https://github.com/hackreactor/bookstrap
-[tools workflow diagram]: http://i.imgur.com/kzlrDj7.png
+[boy scout rule]: http://programmer.97things.oreilly.com/wiki/index.php/The_Boy_Scout_Rule
+[cons of merge]: https://f.cloud.github.com/assets/1577682/1458274/1391ac28-435e-11e3-88b6-69c85029c978.png
+[curriculum workflow diagram]: http://i.imgur.com/p0e4tQK.png
+[DRY]: http://programmer.97things.oreilly.com/wiki/index.php/Don%27t_Repeat_Yourself
 [Git Flow]: http://nvie.com/posts/a-successful-git-branching-model/
+[git workflow]: https://github.com/hackreactor/instructor-wiki/wiki/Git-Workflow#hack-reactor-internal-git-workflow
 [GitHub Flow]: http://scottchacon.com/2011/08/31/github-flow.html
+[n-queens]: https://github.com/hackreactor-labs/n-queens
+[pull request]: https://help.github.com/articles/using-pull-requests
 [Squash]: http://gitready.com/advanced/2009/02/10/squashing-commits-with-rebase.html
+[squashed]: http://gitready.com/advanced/2009/02/10/squashing-commits-with-rebase.html
+[style guide]: https://github.com/hackreactor-labs/style-guide
+[style guide]: https://github.com/hackreactor/style-guide#hack-reactor-style-guide
+[Taser]: https://github.com/hackreactor/bookstrap
+[tests]: https://github.com/hackreactor/bookstrap#tasks
+[tools workflow diagram]: http://i.imgur.com/kzlrDj7.png
+[Underbar]: https://github.com/hackreactor-labs/underbar
