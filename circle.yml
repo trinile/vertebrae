@@ -1,0 +1,15 @@
+machine:
+  environment:
+    DOWNSTREAM: hackreactor/<NAME_OF_REPO_TO_OVERWRITE>
+dependencies:
+  pre:
+    - npm install -g hackreactor-labs/problemify
+    - git clone git@github.com:hackreactor-labs/scripts.git ../scripts
+test:
+  override:
+    - npm test
+deployment:
+  master:
+    branch: master
+    commands:
+      - ../scripts/ci
