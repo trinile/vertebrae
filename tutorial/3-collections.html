@@ -24,8 +24,8 @@ var Comment = Backbone.Model.extend({
    * Make sure to do those first (!!!) and then check here for new patterns. */
 
   initialize: function(message, votes) {
-    this.model.set('message', message);
-    if (votes) this.model.set('votes', votes);
+    this.set('message', message);
+    if (votes) this.set('votes', votes);
   },
   // Default to 0 votes
   defaults: {
@@ -34,8 +34,8 @@ var Comment = Backbone.Model.extend({
   // Convenience function over `model.get/set`
   votes: function(votes) {
     return arguments.length ?
-      this.model.set('votes', votes) :
-      this.model.get('votes');
+      this.set('votes', votes) :
+      this.get('votes');
   }
 });
 var CommentView = Backbone.View.extend({
@@ -46,7 +46,7 @@ var CommentView = Backbone.View.extend({
     var html = [
       '<div>',
         '<span class="votes">',
-          this.model.get('votes')
+          this.model.get('votes'),
         '<span>',
         '<span class="comment">',
           this.model.get('message'),
@@ -81,28 +81,30 @@ var CommentsView = Backbone.View.extend({
   initialize: function() {
     /* Backbone events bubble up through collections,
      * so monitoring a model in a collection is easy! */
-    this.model.on('change:votes', function() { this.render }, this);
+    this.model.on('change:votes', function() { this.render() }, this);
   },
 
   // Now we must render the collection:
   render: function() {
     var html = [
       '<ul>',
-        /* Render each model in the collection as a list item (<li>).
-         * Remember, we the underscore functions: */
-        this.map(function(comment) {
-          /* YOUR CODE HERE */;
-        })
       '</ul>',
       '<span class="votes">',
         // The total number of votes
-        this.reduce(function(memo, comment) {
-          return memo + comment.get('vote');
-        }, 0);
+        this.model.reduce(function(memo, comment) {
+          return memo + +comment.get('votes');
+        }, 0),
       '</span>'
     ].join('');
 
-    return this.$el.html(html);
+    this.$el.html(html);
+    /* Render each model in the collection as a list item (<li>).
+     * Remember, we the underscore functions: */
+    this.$el.find('ul').append(this.model.map(function(comment) {
+      /* YOUR CODE HERE */;
+    }));
+
+    return this.$el;
   }
 });
 
@@ -110,11 +112,11 @@ var CommentsView = Backbone.View.extend({
 
 /* Create a few new comment models using our Comment class: */
 var commentList = [
-  new Comment('Douglas!'),
-  new Comment('Douglas?'),
-  new Comment('Douglas.'),
-  new Comment('"Douglas".'),
-  new Comment('Douglas?!')];
+  new Comment('Douglas!'), // default to 0 votes
+  new Comment('Douglas?', 1),
+  new Comment('Douglas.', 2),
+  new Comment('"Douglas".', 3),
+  new Comment('Douglas?!', 4)];
 
 // Add all of these to a new collection:
 var comments = new Comments(commentList);
