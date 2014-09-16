@@ -1,3 +1,11 @@
+<html>
+  <head>
+    <script src="lib/jquery/dist/jquery.js"></script>
+    <script src="lib/underscore/underscore.js"></script>
+    <script src="lib/backbone/backbone.js"></script>
+  </head>
+  <body>
+    <script>
 // Now it is your turn.  
 
 /* Here is what you start with:
@@ -17,12 +25,12 @@ var renderSomethingOnThePage = function(message) {
    * This also allows us to space out the html as we're used to - a tree.
    */
   var html = [
-    "<div>",
-      "<span>",
+    '<div>',
+      '<span>',
         message,
-      "</span>",
-    "</div>",
-    "<br/>"
+      '</span>',
+    '</div>',
+    '<br/>'
   ].join('');
 
   /* Question:
@@ -159,3 +167,6 @@ myNewMessage.set({message: 'someMessage'});
  *
  * To call `alertThisMessage` on the object: `myNewMessage.alertThisMessage();`
  */
+    </script>
+  </body>
+</html>

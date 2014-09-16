@@ -2,18 +2,8 @@
   "name": "spine",
   "version": "0.0.0",
   "description": "A (chiro)practical approach to backbone.js",
-  "main": "index.js",
   "scripts": {
-    "postinstall": "bower i",
-    "start": "node index.js"
+    "postinstall": "bower i"
   },
-  "author": "Zach Pomerantz <zmp@umich.edu> (http://garabagne.io/)",
-  "devDependencies": {
-    "express": "^4.9.0",
-    "open": "0.0.5"
-  },
-  "dependencies": {
-    "consolidate": "^0.10.0",
-    "inquirer": "^0.7.2"
-  }
+  "author": "Zach Pomerantz <zmp@umich.edu> (http://garabagne.io/)"
 }
