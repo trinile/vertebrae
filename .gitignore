@@ -1,0 +1,6 @@
+# Managed packages
+/node_modules
+/lib
+
+# Swap files (for the .vim users in all of us)
+/**/*.swp
