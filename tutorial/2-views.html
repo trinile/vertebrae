@@ -67,7 +67,7 @@ var CommentView = Backbone.View.extend({
      * - `'change:votes'` => this first argument defines what to listen for
      *   - We can listen for a change on a specific attribute using a colon.
      * - `function`       => this is the callback for this event listener */
-      this.render
+      this.render()
     /*   - Usually, we can't rely on `this` being what we think it is in
      *      an event listener. However, Backbone allows us to specify what
      *      `this` will be in the third argument of `model.on`,
@@ -136,7 +136,8 @@ var commentView = new CommentView({ model: comment });
  *
  * In this case, this is the way we associate the view to its model.
  *
- * NOTE: You cant just put any object in there, it _must_ be a Backbone model.
+ * NOTE: You can't just put any object in the options hash as the model,
+ * it _must_ be a Backbone model.
  */
 
 // Append the view to the page. This is why we returned html from `render`:

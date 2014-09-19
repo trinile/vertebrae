@@ -25,7 +25,7 @@ var Comment = Backbone.Model.extend({
 
   initialize: function(message, votes) {
     this.set('message', message);
-    if (votes) this.set('votes', votes);
+    if (votes) { this.set('votes', votes); }
   },
   // Default to 0 votes
   defaults: {
@@ -33,14 +33,16 @@ var Comment = Backbone.Model.extend({
   },
   // Convenience function over `model.get/set`
   votes: function(votes) {
-    return arguments.length ?
-      this.set('votes', votes) :
-      this.get('votes');
+    if (arguments.length) {
+      return this.set('votes', votes);
+    } else {
+      return this.get('votes');
+    }
   }
 });
 var CommentView = Backbone.View.extend({
   initialize: function() {
-    this.model.on('change:votes', function() { this.render }, this);
+    this.model.on('change:votes', this.render, this);
   },
   render: function() {
     var html = [
@@ -81,7 +83,7 @@ var CommentsView = Backbone.View.extend({
   initialize: function() {
     /* Backbone events bubble up through collections,
      * so monitoring a model in a collection is easy! */
-    this.model.on('change:votes', function() { this.render() }, this);
+    this.model.on('change:votes', this.render, this);
   },
 
   // Now we must render the collection:
@@ -92,14 +94,14 @@ var CommentsView = Backbone.View.extend({
       '<span class="votes">',
         // The total number of votes
         this.model.reduce(function(memo, comment) {
-          return memo + +comment.get('votes');
+          return memo + comment.get('votes');
         }, 0),
       '</span>'
     ].join('');
 
     this.$el.html(html);
     /* Render each model in the collection as a list item (<li>).
-     * Remember, we the underscore functions: */
+     * Remember, we have the underscore functions: */
     this.$el.find('ul').append(this.model.map(function(comment) {
       /* YOUR CODE HERE */;
     }));
@@ -112,14 +114,15 @@ var CommentsView = Backbone.View.extend({
 
 /* Create a few new comment models using our Comment class: */
 var commentList = [
-  new Comment('Douglas!'), // default to 0 votes
-  new Comment('Douglas?', 1),
-  new Comment('Douglas.', 2),
-  new Comment('"Douglas".', 3),
-  new Comment('Douglas?!', 4)];
+  new Comment('Doug!'), // default to 0 votes
+  new Comment('Doug?', 1),
+  new Comment('Doug.', 2),
+  new Comment('"Doug".', 3),
+  new Comment('Doug?!', 4)];
 
 // Add all of these to a new collection:
 var comments = new Comments(commentList);
+
 // Associate a view to the collection:
 var commentsView = new CommentsView({ model: comments });
 
