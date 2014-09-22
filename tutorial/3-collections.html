@@ -59,6 +59,12 @@ var CommentView = Backbone.View.extend({
     ].join('');
 
     return this.$el.html(html);
+    /* Rendering raw model attributes like this could expose us
+     * to XSS attacks. In a real application, make sure to use
+     * templating to protect against this, such as
+     * <%- escaped interpolation %> in underscore's _.template.
+     *
+     * For now, we won't worry about that. */
   }
 });
 /* Now that we have a model, let's imagine what would happen were we to have
