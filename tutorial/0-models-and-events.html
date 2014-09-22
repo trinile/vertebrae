@@ -37,8 +37,11 @@ var Tweet = Backbone.Model.extend({
   /* This is just a bare bones Backbone model. No extra special bits to add.
    * Note that Backbone.Model is just another JavaScript class. We use extend
    * to set it up as a normal class instantiator, with the normal
-   * pseudoclassical hierarchy - extend is the same function you've seen in
-   * underscore! */
+   * pseudoclassical hierarchy - NOTE: extend (in backbone) is NOT the same 
+   * function you've seen in underscore! Backbone.Model.extend is going to 
+   * subclass Backbone.Model --basically make a constructor (function) whose 
+   * prototype has your provided properties.
+   */
 });
 
 /* Backbone models are pseudoclassically instantiated: */
