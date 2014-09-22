@@ -22,7 +22,8 @@ var renderSomethingOnThePage = function(message) {
    * Instead, we break it out first into a variable called `$element`.
    * Now, we can call the `el.append` method with the `$element` variable.
    *
-   * This also allows us to space out the html as we're used to - a tree.
+   * This also allows us to space out the html as we're used to,
+   * with indents to make it easier to read.
    */
   var html = [
     '<div>',
@@ -117,8 +118,10 @@ var Message = Backbone.Model.extend({
    * and want to be able to call this function, so we define it on the model.
    */
   alertThisMessage: function() {
-    /* Note: The object within any model is a spot you will frequently be
-     * storing information about a model in, hence the use of getters/setters.
+    /* Note: You will frequently be storing attributes on your models,
+     * and the model needs to be aware of these changes,
+     * hence the use of getters/setters.
+     *
      * If you're curious about these functions, read up on them in
      * [the documentation](http://backbonejs.org/#Model-get).
      */
