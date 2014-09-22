@@ -35,5 +35,6 @@ lib/
 .floo
 .flooignore
 
-# Swap files (for the .vim users in all of us)
+# Swap files (for the vim users in all of us)
 /**/*.swp
+

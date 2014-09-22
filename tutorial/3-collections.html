@@ -34,7 +34,8 @@ var Comment = Backbone.Model.extend({
   // Convenience function over `model.get/set`
   votes: function(votes) {
     if (arguments.length) {
-      return this.set('votes', votes);
+      this.set('votes', votes);
+      return votes;
     } else {
       return this.get('votes');
     }

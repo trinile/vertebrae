@@ -60,12 +60,12 @@ myTweet.set('message', 'Hello, world!');
  * Backbone gives us the ability to listen for events on our models,
  * similar to how we register events on the DOM using jQuery.
  * If something in our model changes, we can listen for that change and react
- * accordingly after the `event` happens.  When we want to register a listener,
+ * accordingly when the event happens.  When we want to register a listener,
  * we use the method `model.on`.
  *
  * `model.on` takes two arguments:
- * 1. The event.
- * 2. A function that does the thing you want to do when the 'event' happens.
+ * 1. The event name being triggered.
+ * 2. A function that does the thing you want to do when the event happens (i.e. the event handler, or callback function).
  *
  * Backbone gives you a couple of events for free, like `change`.
  * This event is triggered automatically if something changes in the model:
@@ -88,13 +88,13 @@ myTweet.on('change',
 );
 
 /* Backbone works through getters/setters. If you change something on
- * your model as if it were a POJO (plain old javascript object),
+ * your model as if it were a plain old javascript object,
  * Backbone will not know to fire the change event. */
 // myTweet.message = 'This will not work';
 
 /* Instead, we need to use the baked in getters/setters given to us
  * by the framework. Review these now (at http://backbonejs.org/#Model-set)
- * and write the one-liner that will make our `change` listener fire: */
+ * and write a one-liner that will make our `change` listener fire: */
 
 // myTweet/* YOUR CODE HERE */;
 
