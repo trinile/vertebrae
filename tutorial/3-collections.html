@@ -110,7 +110,11 @@ var CommentsView = Backbone.View.extend({
     /* Render each model in the collection as a list item (<li>).
      * Remember, we have the underscore functions: */
     this.$el.find('ul').append(this.model.map(function(comment) {
-      /* YOUR CODE HERE */;
+      /*START SOLUTION*/
+      return new CommentView({ model: comment }).render();
+      /*ELSE
+      // YOUR CODE HERE
+      END SOLUTION*/
     }));
 
     return this.$el;
