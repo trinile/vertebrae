@@ -1,6 +1,6 @@
 machine:
   environment:
-    DOWNSTREAM: hackreactor/spine
+    DOWNSTREAM: hackreactor/vertebrae
 dependencies:
   pre:
     - npm install -g hackreactor-labs/problemify
