@@ -26,30 +26,15 @@ var Comment = Backbone.Model.extend({
   initialize: function(message) {
     /* Set the initial values for `votes` to 0 and `message` to the message.
      * Remember to use setters when working with attributes! */
-    /*START SOLUTION*/
-    this.set('votes', 0);
-    this.set('message', message);
-    /*END SOLUTION*/
   },
   votes: function() {
     /* Return the votes attribute on this model.
      * Remember to use a getter when working with attributes! */
-    /*START SOLUTION*/
-    return this.get('votes');
-    /*END SOLUTION*/
   },
   upvote: function(){
     // Set the `votes` attribute to the current vote count plus one.
-    /*START SOLUTION*/
-    return this.set('votes', this.get('votes') + 1);
-    /*END SOLUTION*/
   }
   // Add a downvote function; don't forget the comma above.
-  /*START SOLUTION*/
-  , downvote: function() {
-    return this.set('votes', this.get('votes') - 1);
-  }
-  /*END SOLUTION*/
 });
 
 /* - Backbone VIEW ------------------------------------------------------------
